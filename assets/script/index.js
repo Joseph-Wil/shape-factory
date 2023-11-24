@@ -20,18 +20,9 @@ function onEvent(event, selector, callback) {
 
 const grid = select('.grid-container');
 const button = select('.create');
-//const location = select('.unit');
+const shapeAndColor = select('.text');
 const shapeSelection = select('.shape');
 const colorSelection = select('.color');
-/*const square = select('.square');
-const circle = select('.circle');
-const blue = select('.blue');
-const green = select('.green');
-const orange = select('.orange');
-const pink = select('.pink');
-const purple = select('.purple');
-*/
-// Event
 
 onEvent('click', button,createShape);
 
@@ -55,7 +46,7 @@ function createShape() {
 
         shapeCount++;
     } else {
-        //location.style.innerText = 'Maximum number of shapes has been reached';
+        shapeAndColor.style.innerText = 'Maximum number of shapes has been reached';
     }    
 }
 
