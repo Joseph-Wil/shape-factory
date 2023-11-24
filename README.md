@@ -1,11 +1,7 @@
 # shape-factory
 
-<br>
-
 This is a something I created that gives you an option to choose between two shapes from either a square or a circle and lets you pick out a color. Once you have those two selected, 
 you just click on the button 'create' and it will display those shapes for you inside the box.
-
-<br>
 
 Click [here](https://Joseph-Wil.github.io/shape-factory/) to check it out.
 
