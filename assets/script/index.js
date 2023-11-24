@@ -8,10 +8,6 @@ function select(selector, parent = document) {
     return parent.querySelector(selector);
 }
 
-function selectAll(selector, parent = document) {
-    return [...parent.querySelectorAll(selector)];
-}
-
 function onEvent(event, selector, callback) {
     return selector.addEventListener(event, callback);
 }
@@ -24,7 +20,7 @@ const shapeAndColor = select('.text');
 const shapeSelection = select('.shape');
 const colorSelection = select('.color');
 
-onEvent('click', button,createShape);
+onEvent('click', button, createShape);
 
 let shapeCount = 0;
 let shapeArray = [];
@@ -39,14 +35,22 @@ function createShape() {
 
 
         const shapeElement = document.createElement('div');
+        shapeElement.classList.add('shape');
         shapeElement.classList.add(selectedShape);
         shapeElement.classList.add(selectedColor);
+
+        onEvent('click', shapeElement, function() {
+            showShapeDetails(selectedShape, selectedColor, shapeArray.indexOf(newShape));
+        });
 
         grid.appendChild(shapeElement);
 
         shapeCount++;
     } else {
-        shapeAndColor.style.innerText = 'Maximum number of shapes has been reached';
+        shapeAndColor.innerText = 'Maximum number of shapes has been reached';
     }    
 }
 
+function showShapeDetails(shape, color, gridNumber) {
+    shapeAndColor.innerText = `Unit ${gridNumber}: ${color} ${shape}`
+}
